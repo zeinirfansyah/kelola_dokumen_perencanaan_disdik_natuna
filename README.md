@@ -5,8 +5,6 @@
 - node js
 - laragon/xampp for mysql usage
 
-===
-
 ## Installation
 - clone this repository `git clone https://github.com/zeinirfansyah/kelola-dokumen-disdiknatuna.git`
 - install dependencies `npm install` and `composer install`
