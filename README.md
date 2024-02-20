@@ -3,7 +3,7 @@
 # Installation
 - clone this repository `git clone https://github.com/zeinirfansyah/kelola-dokumen-disdiknatuna.git`
 - install dependencies `npm install` and `composer install`
-- setup env filecp `.env.example .env` then generate the key `php artisan key:generate`
+- setup env file `cp .env.example .env` then generate the key `php artisan key:generate`
 - create empty database based on database name inside .env file
 - migrate the database `php artisan migrate`
 - run the project localy `npm run dev` and `php artisan serve`
