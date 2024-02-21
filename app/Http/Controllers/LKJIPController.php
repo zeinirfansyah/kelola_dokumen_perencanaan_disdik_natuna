@@ -91,9 +91,12 @@ class LKJIPController extends Controller
 
     private function handleDocumentUpload(Request $request, $currentDocument)
     {
+
+        $nama_dokumen = $request->nama_dokumen;
+
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
             $document = $request->file('file');
-            $filename = time() . '.' . $document->getClientOriginalExtension();
+            $filename = time() . '-' . $nama_dokumen . '.' . $document->getClientOriginalExtension();
     
             // Save the file in the 'public/documents/lkjip' directory
             $document->storeAs('public/documents/lkjip', $filename);

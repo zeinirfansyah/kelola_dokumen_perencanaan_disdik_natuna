@@ -91,9 +91,11 @@ class SPMPController extends Controller
 
     private function handleDocumentUpload(Request $request, $currentDocument)
     {
+        $nama_dokumen = $request->nama_dokumen;
+
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
             $document = $request->file('file');
-            $filename = time() . '.' . $document->getClientOriginalExtension();
+            $filename = time() . '-' . $nama_dokumen . '.' . $document->getClientOriginalExtension();
     
             // Save the file in the 'public/documents/spmp' directory
             $document->storeAs('public/documents/spmp', $filename);
