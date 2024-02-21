@@ -81,10 +81,26 @@ class LKJIPController extends Controller
         return redirect()->route('lkjip.index')->with('success', 'Document data created successfully');
     }
 
+    // public function deleteDocument($id)
+    // {
+    //     $document = Lkjip::find($id);
+    //     $document->delete();
+
+    //     return redirect()->route('lkjip.index')->with('success', 'Lkjip deleted successfully');
+    // }
+
     public function deleteDocument($id)
     {
         $document = Lkjip::find($id);
+
+        // Get the file name from the database record
+        $filename = $document->file;
+
+        // Delete the database record
         $document->delete();
+
+        // Delete the associated file from storage
+        Storage::delete("public/documents/lkjip/{$filename}");
 
         return redirect()->route('lkjip.index')->with('success', 'Lkjip deleted successfully');
     }

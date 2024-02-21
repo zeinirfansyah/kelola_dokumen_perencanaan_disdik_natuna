@@ -81,12 +81,28 @@ class SPMPController extends Controller
         return redirect()->route('spmp.index')->with('success', 'Document data created successfully');
     }
 
+    // public function deleteDocument($id)
+    // {
+    //     $document = Spmp::find($id);
+    //     $document->delete();
+
+    //     return redirect()->route('spmp.index')->with('success', 'Spmp deleted successfully');
+    // }
+
     public function deleteDocument($id)
     {
         $document = Spmp::find($id);
+
+        // Get the file name from the database record
+        $filename = $document->file;
+
+        // Delete the database record
         $document->delete();
 
-        return redirect()->route('spmp.index')->with('success', 'Spmp deleted successfully');
+        // Delete the associated file from storage
+        Storage::delete("public/documents/spmp/{$filename}");
+
+        return redirect()->route('spmp.index')->with('success', 'SPMP deleted successfully');
     }
 
     private function handleDocumentUpload(Request $request, $currentDocument)
