@@ -85,7 +85,7 @@
                             {{ $document->tahun }}
                           </td>
                           <td class="col-4">
-                            <a href="{{ asset('storage/documents/' . $document->file) }}"
+                            <a href="{{ asset('storage/documents/lkjip/' . $document->file) }}"
                               download>{{ $document->nama_dokumen }}</a>
                           </td>
                           <td>

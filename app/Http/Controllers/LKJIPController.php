@@ -95,8 +95,8 @@ class LKJIPController extends Controller
             $document = $request->file('file');
             $filename = time() . '.' . $document->getClientOriginalExtension();
     
-            // Save the file in the 'public/documents' directory
-            $document->storeAs('public/documents', $filename);
+            // Save the file in the 'public/documents/lkjip' directory
+            $document->storeAs('public/documents/lkjip', $filename);
     
             return $filename; // Return the generated filename
         }
@@ -150,7 +150,7 @@ class LKJIPController extends Controller
         $document = Lkjip::where('id', $id)->update($document);
         // Delete the old file if it's different from the new one
         if ($currentFile !== $filename) {
-            Storage::delete("public/documents/{$currentFile}");
+            Storage::delete("public/documents/lkjip/{$currentFile}");
         }
         return redirect()->route('lkjip.index', ['id' => $id])->with('success', 'LKJIP data updated successfully');
     }
