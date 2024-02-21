@@ -58,8 +58,7 @@ class LKJIPController extends Controller
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
             'mimes' => ':attribute harus berupa file PDF, Word, Excel.',
-            'max' => ':attribute maksimal 2 MB.',
-            'max' => ':attribute maksimal 255 karakter.',
+            'max' => ':attribute maksimal 2 MB atau 255 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'exists' => ':attribute tidak ditemukan.',
         ]);
@@ -144,8 +143,7 @@ class LKJIPController extends Controller
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
             'mimes' => ':attribute harus berupa file PDF, Word, Excel.',
-            'max' => ':attribute maksimal 2 MB.',
-            'max' => ':attribute maksimal 255 karakter.',
+            'max' => ':attribute maksimal 2 MB atau 255 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'exists' => ':attribute tidak ditemukan.',
         ]);
