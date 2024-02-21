@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDataController;
@@ -25,7 +26,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     //    all user routes
-    Route::get('/home', [HomeController::class, 'index'])->name('customer.home');
+    Route::get('/home', [HomeController::class, 'index'])->name('visitor.home');
 
     // Admin and superadmin routes
     Route::middleware(['auth', 'user-access:admin,superadmin'])->group(function(){
@@ -36,6 +37,16 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
             Route::put('/update', [ProfileController::class, 'editProfile'])->name('profile.edit');
         });
+        
+        Route::prefix('admin/lkjip')->group(function () {
+            Route::get('/', [LKJIPController::class, 'index'])->name('lkjip.index');
+            Route::get('/create', [LKJIPController::class, 'createDocument'])->name('lkjip.create');
+            Route::post('/create', [LKJIPController::class, 'storeDocument'])->name('lkjip.store');
+            Route::get('/{id}/update', [LKJIPController::class, 'updateDocument'])->name('lkjip.update');
+            Route::put('/{id}/update', [LKJIPController::class, 'editDocument'])->name('lkjip.edit');
+            Route::delete('/{id}/delete', [LKJIPController::class, 'deleteDocument'])->name('lkjip.delete');
+        });
+        
     });
 
     // Superadmin only
