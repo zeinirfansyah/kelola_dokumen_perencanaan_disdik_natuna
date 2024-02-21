@@ -3,6 +3,7 @@
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,15 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/{id}/update', [LKJIPController::class, 'updateDocument'])->name('lkjip.update');
             Route::put('/{id}/update', [LKJIPController::class, 'editDocument'])->name('lkjip.edit');
             Route::delete('/{id}/delete', [LKJIPController::class, 'deleteDocument'])->name('lkjip.delete');
+        });
+
+        Route::prefix('admin/spmp')->group(function () {
+            Route::get('/', [SPMPController::class, 'index'])->name('spmp.index');
+            Route::get('/create', [SPMPController::class, 'createDocument'])->name('spmp.create');
+            Route::post('/create', [SPMPController::class, 'storeDocument'])->name('spmp.store');
+            Route::get('/{id}/update', [SPMPController::class, 'updateDocument'])->name('spmp.update');
+            Route::put('/{id}/update', [SPMPController::class, 'editDocument'])->name('spmp.edit');
+            Route::delete('/{id}/delete', [SPMPController::class, 'deleteDocument'])->name('spmp.delete');
         });
         
     });
