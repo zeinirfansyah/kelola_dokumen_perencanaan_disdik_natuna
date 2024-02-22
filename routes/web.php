@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
@@ -55,6 +56,15 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/{id}/update', [SPMPController::class, 'updateDocument'])->name('spmp.update');
             Route::put('/{id}/update', [SPMPController::class, 'editDocument'])->name('spmp.edit');
             Route::delete('/{id}/delete', [SPMPController::class, 'deleteDocument'])->name('spmp.delete');
+        });
+        
+        Route::prefix('admin/pkrkt')->group(function () {
+            Route::get('/', [PKRKTController::class, 'index'])->name('pkrkt.index');
+            Route::get('/create', [PKRKTController::class, 'createDocument'])->name('pkrkt.create');
+            Route::post('/create', [PKRKTController::class, 'storeDocument'])->name('pkrkt.store');
+            Route::get('/{id}/update', [PKRKTController::class, 'updateDocument'])->name('pkrkt.update');
+            Route::put('/{id}/update', [PKRKTController::class, 'editDocument'])->name('pkrkt.edit');
+            Route::delete('/{id}/delete', [PKRKTController::class, 'deleteDocument'])->name('pkrkt.delete');
         });
         
     });
