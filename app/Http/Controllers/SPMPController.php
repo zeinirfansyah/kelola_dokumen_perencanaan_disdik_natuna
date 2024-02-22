@@ -49,16 +49,16 @@ class SPMPController extends Controller
     public function storeDocument(Request $request)
     {
         $validate = $request->validate([  
-            'nama_dokumen' => 'required|string|max:255',
-            'tahun' => 'required|string|max:255',
+            'nama_dokumen' => 'required|string|max:1000',
+            'tahun' => 'required|string|max:1000',
             'file' => 'required|mimes:pdf,doc,docx,xls,xlsx|max:2048',
-            'keterangan' => 'max:255',
+            'keterangan' => 'max:1000',
         ], [
             'required' => ':attribute harus diisi.',
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
             'mimes' => ':attribute harus berupa file PDF, Word, Excel.',
-            'max' => ':attribute maksimal 2 MB atau 255 karakter.',
+            'max' => ':attribute maksimal 2 MB atau 1000 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'exists' => ':attribute tidak ditemukan.',
         ]);
@@ -133,16 +133,16 @@ class SPMPController extends Controller
         $document = Spmp::find($id);
 
         $validate = $request->validate([  
-            'nama_dokumen' => 'required|string|max:255',
-            'tahun' => 'required|string|max:255',
+            'nama_dokumen' => 'required|string|max:1000',
+            'tahun' => 'required|string|max:1000',
             'file' => 'mimes:pdf,doc,docx,xls,xlsx|max:2048',
-            'keterangan' => 'max:255',
+            'keterangan' => 'max:1000',
         ], [
             'required' => ':attribute harus diisi.',
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
             'mimes' => ':attribute harus berupa file PDF, Word, Excel.',
-            'max' => ':attribute maksimal 2 MB atau 255 karakter.',
+            'max' => ':attribute maksimal 2 MB atau 1000 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'exists' => ':attribute tidak ditemukan.',
         ]);

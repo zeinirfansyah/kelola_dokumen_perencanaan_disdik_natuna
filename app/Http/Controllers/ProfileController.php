@@ -27,9 +27,9 @@ class ProfileController extends Controller
 
         // Validation rules
         $rules = [
-            'nama_user' => 'required|string|max:255',
-            'no_telepon' => 'required|string|max:255|unique:users,no_telepon,' . auth()->user()->id,
-            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
+            'nama_user' => 'required|string|max:1000',
+            'no_telepon' => 'required|string|max:1000|unique:users,no_telepon,' . auth()->user()->id,
+            'email' => 'required|string|email|max:1000|unique:users,email,' . auth()->user()->id,
             'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
             'required' => ':attribute harus diisi.',
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
-            'max' => ':attribute maksimal 255 karakter.',
+            'max' => ':attribute maksimal 1000 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'email' => ':attribute harus email.',
             'image' => ':attribute harus jpeg, png, jpg.',

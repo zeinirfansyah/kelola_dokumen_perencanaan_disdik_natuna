@@ -65,17 +65,17 @@ class UserDataController extends Controller
     public function storeUser(Request $request)
     {
         $validate = $request->validate([
-            'nama_user' => 'required|string|max:255',
-            'no_telepon' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users' . $request->id,
+            'nama_user' => 'required|string|max:1000',
+            'no_telepon' => 'required|string|max:1000|unique:users',
+            'email' => 'required|string|email|max:1000|unique:users' . $request->id,
             'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
             'password' => 'required|string|min:8',
-            'role' => 'required|string|max:255',
+            'role' => 'required|string|max:1000',
         ], [
             'required' => ':attribute harus diisi.',
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
-            'max' => ':attribute maksimal 255 karakter.',
+            'max' => ':attribute maksimal 1000 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'email' => ':attribute harus email.',
             'image' => ':attribute harus jpeg, png, jpg.',
@@ -114,16 +114,16 @@ class UserDataController extends Controller
         $user = User::find($id);
 
         $validate = $request->validate([
-            'nama_user' => 'required|string|max:255',
-            'no_telepon' => 'required|string|max:255|unique:users,no_telepon,' . $id,
-            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'nama_user' => 'required|string|max:1000',
+            'no_telepon' => 'required|string|max:1000|unique:users,no_telepon,' . $id,
+            'email' => 'required|string|email|max:1000|unique:users,email,' . $id,
             'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'role' => 'required|string|max:255',
+            'role' => 'required|string|max:1000',
         ], [
             'required' => ':attribute harus diisi.',
             'unique' => ':attribute sudah ada.',
             'string' => ':attribute harus string.',
-            'max' => ':attribute maksimal 255 karakter.',
+            'max' => ':attribute maksimal 1000 karakter.',
             'min' => ':attribute minimal 8 karakter.',
             'email' => ':attribute harus email.',
             'image' => ':attribute harus jpeg, png, jpg.',
