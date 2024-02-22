@@ -88,7 +88,7 @@
                             <a href="{{ asset('storage/documents/lkjip/' . $document->file) }}"
                               download>{{ $document->nama_dokumen }}</a>
                           </td>
-                          <td>
+                          <td class=" col-4 truncate-text">
                             {{ $document->keterangan }}
                           </td>
                           <td class="col-2">
@@ -143,4 +143,23 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Add this script to your page or in a separate JavaScript file
+    document.addEventListener('DOMContentLoaded', function() {
+      var elements = document.getElementsByClassName('truncate-text');
+
+      for (var i = 0; i < elements.length; i++) {
+        var text = elements[i].textContent.trim();
+        var words = text.split(' ');
+        var truncatedText = words.slice(0, 10).join(' ');
+
+        if (words.length > 10) {
+          truncatedText += '...'; // Add ellipsis if content is truncated
+        }
+
+        elements[i].textContent = truncatedText;
+      }
+    });
+  </script>
 @endsection

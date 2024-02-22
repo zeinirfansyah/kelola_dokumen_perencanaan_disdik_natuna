@@ -66,7 +66,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary mt-2">
-              Create Document
+              Edit Document
             </button>
           </form>
         </div>
