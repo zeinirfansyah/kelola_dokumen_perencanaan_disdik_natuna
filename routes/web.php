@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PKRKTController;
@@ -65,6 +66,16 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/{id}/update', [PKRKTController::class, 'updateDocument'])->name('pkrkt.update');
             Route::put('/{id}/update', [PKRKTController::class, 'editDocument'])->name('pkrkt.edit');
             Route::delete('/{id}/delete', [PKRKTController::class, 'deleteDocument'])->name('pkrkt.delete');
+        });
+        
+        Route::prefix('admin/galery')->group(function () {
+            Route::get('/', [GaleryController::class, 'index'])->name('galery.index');
+            Route::get('/create', [GaleryController::class, 'createDocument'])->name('galery.create');
+            Route::post('/create', [GaleryController::class, 'storeDocument'])->name('galery.store');
+            Route::get('/{id}/update', [GaleryController::class, 'updateDocument'])->name('galery.update');
+            Route::put('/{id}/update', [GaleryController::class, 'editDocument'])->name('galery.edit');
+            Route::delete('/{id}/delete', [GaleryController::class, 'deleteDocument'])->name('galery.delete');
+            Route::get('/{id}/detail', [GaleryController::class, 'detailDocument'])->name('galery.detail');
         });
         
     });
