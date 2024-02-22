@@ -30,11 +30,8 @@ class GaleryController extends Controller
         $documentsQuery->orderByDesc('tahun');
     
         $years =Galery::select('tahun')->distinct()->get();
-
-        // ambil data user kecuali dengan role user Visitor
-        $users = User::where('role', '!=', 'user')->get();
     
-        $documents = $documentsQuery->with('user')->paginate(10);
+        $documents = $documentsQuery->paginate(6);
     
         return view('admin.galery.index', [
             'documents' => $documents,
@@ -44,8 +41,8 @@ class GaleryController extends Controller
     
     public function detailDocument($id)
     {
-        $galery = Galery::find($id);
-        return view('admin.galery.detail', ['galery' => $galery]);
+        $document = Galery::find($id);
+        return view('admin.galery.detail', ['document' => $document]);
     }
 
     public function createDocument()

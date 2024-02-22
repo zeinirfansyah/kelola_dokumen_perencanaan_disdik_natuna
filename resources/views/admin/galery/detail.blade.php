@@ -10,7 +10,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
               <li class="breadcrumb-item"><a href="{{ route('galery.index') }}">Galery</a></li>
-              <li class="breadcrumb-item active">{{ $galery->nama_dokumen }}</li>
+              <li class="breadcrumb-item active">{{ $document->nama_dokumen }}</li>
             </ol>
           </div>
         </div>
@@ -32,8 +32,8 @@
         <div class="card p-3">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-              <h3><strong>{{ $galery->nama_dokumen }}</strong></h3>
-              <strong class="alert alert-info px-2 py-1">Oleh: {{ $galery->user->nama_user }}</strong>
+              <h3><strong>{{ $document->nama_dokumen }}</strong></h3>
+              <strong class="alert alert-info px-2 py-1">Uploader: {{ $document->user->nama_user }}</strong>
             </div>
           </div>
           <div class="card-body">
@@ -41,13 +41,13 @@
               <div class="col">
                 <div class="d-flex justify-content-center">
                   <div class="image mb-3">
-                    @if ($galery->file === 'default_document.jpg')
-                      <img src="{{ asset('storage/documents/galery/' . $galery->file) }}" class="img-fluid rounded"
+                    @if ($document->file === 'default_document.jpg')
+                      <img src="{{ asset('storage/documents/galery/' . $document->file) }}" class="img-fluid rounded"
                         style="height: 450px; width: 100%; object-fit: contain;  border: 5px solid #d7d7d7;">
                     @else
-                      <img src="{{ asset('storage/documents/galery/' . $galery->file) }}" class="img-fluid rounded"
+                      <img src="{{ asset('storage/documents/galery/' . $document->file) }}" class="img-fluid rounded"
                         style="height: 450px; width: 100%; object-fit: contain;  border: 5px solid #d7d7d7;"
-                        alt="{{ $galery->file }}">
+                        alt="{{ $document->file }}">
                     @endif
                   </div>
                 </div>
@@ -58,20 +58,52 @@
             <table class="table table-bordered my-2">
               <tr>
                 <th class="col-2">Nama Dokumen</th>
-                <td>{{ $galery->nama_dokumen }}</td>
+                <td>{{ $document->nama_dokumen }}</td>
               </tr>
               <tr>
                 <th class="col-2">Tahun Diambil</th>
-                <td>{{ $galery->tahun }}</td>
+                <td>{{ $document->tahun }}</td>
               </tr>
               <tr>
                 <td colspan="2">
                   <h5>Keterangan</h5>
-                  {{ $galery->keterangan }}
+                  {{ $document->keterangan }}
                 </td>
               </tr>
             </table>
-            <a href="{{ route('galery.update', $galery->id) }}" class="btn btn-primary">Edit Data</a>
+            <a href="{{ route('galery.update', $document->id) }}" class="btn btn-primary">Edit Data</a>
+
+            <form action="{{ route('galery.delete', ['id' => $document->id]) }}" method="POST"
+              class="d-inline">
+              @csrf
+              @method('DELETE')
+              <button type="button" class="btn btn-danger" data-toggle="modal"
+                data-target="#deleteModal{{ $document->id }}">
+                Delete
+              </button>
+
+              <!-- Confirmation alert modal -->
+              <div class="modal fade" id="deleteModal{{ $document->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="deleteModalLabel{{ $document->id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="deleteModalLabel{{ $document->id }}">Confirmation</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to delete this document?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
