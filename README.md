@@ -1,9 +1,9 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 ## Requirement
-- composer
-- node js
-- laragon/xampp for mysql usage
+- composer `https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows/`
+- node js `https://www.geeksforgeeks.org/installation-of-node-js-on-windows/`
+- laragon/xampp for mysql usage `https://laragon.org/download/index.html`
 
 ## Installation
 - clone this repository `git clone https://github.com/zeinirfansyah/kelola-dokumen-disdiknatuna.git`
