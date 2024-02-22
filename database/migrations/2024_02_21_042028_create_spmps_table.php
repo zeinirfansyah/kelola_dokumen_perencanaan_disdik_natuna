@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('spmps', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->string('nama_dokumen');
+            $table->string('nama_dokumen', 640);
             $table->string('tahun');
-            $table->string('file');
-            $table->string('keterangan')->nullable();
+            $table->string('file', 640);
+            $table->string('keterangan', 640)->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

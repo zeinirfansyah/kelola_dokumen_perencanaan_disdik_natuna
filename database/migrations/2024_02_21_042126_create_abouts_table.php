@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->string('tentang_disdik')->nullable()->max(1000);
-            $table->string('alamat')->nullable()->max(540);
-            $table->string('no_telepon')->nullable()->max(15);
-            $table->string('instagram')->nullable()->max(255);
+            $table->string('tentang_disdik', 640)->nullable();
+            $table->string('alamat', 640)->nullable();
+            $table->string('no_telepon', 20)->nullable();
+            $table->string('instagram', 640)->nullable();
             $table->timestamps();
         });
     }
