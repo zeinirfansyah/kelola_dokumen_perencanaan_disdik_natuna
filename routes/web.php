@@ -3,6 +3,7 @@
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SPMPController;
@@ -76,6 +77,15 @@ Route::middleware(['auth'])->group(function(){
             Route::put('/{id}/update', [GaleryController::class, 'editDocument'])->name('galery.edit');
             Route::delete('/{id}/delete', [GaleryController::class, 'deleteDocument'])->name('galery.delete');
             Route::get('/{id}/detail', [GaleryController::class, 'detailDocument'])->name('galery.detail');
+        });
+
+        Route::prefix('admin/peraturan')->group(function () {
+            Route::get('/', [PeraturanController::class, 'index'])->name('peraturan.index');
+            Route::get('/create', [PeraturanController::class, 'createDocument'])->name('peraturan.create');
+            Route::post('/create', [PeraturanController::class, 'storeDocument'])->name('peraturan.store');
+            Route::get('/{id}/update', [PeraturanController::class, 'updateDocument'])->name('peraturan.update');
+            Route::put('/{id}/update', [PeraturanController::class, 'editDocument'])->name('peraturan.edit');
+            Route::delete('/{id}/delete', [PeraturanController::class, 'deleteDocument'])->name('peraturan.delete');
         });
         
     });
