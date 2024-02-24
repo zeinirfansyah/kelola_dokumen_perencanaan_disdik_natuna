@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
@@ -86,6 +87,14 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/{id}/update', [PeraturanController::class, 'updateDocument'])->name('peraturan.update');
             Route::put('/{id}/update', [PeraturanController::class, 'editDocument'])->name('peraturan.edit');
             Route::delete('/{id}/delete', [PeraturanController::class, 'deleteDocument'])->name('peraturan.delete');
+        });
+
+        Route::prefix('admin/about')->group(function () {
+            Route::get('/', [AboutController::class, 'index'])->name('about.index');
+            Route::get('/create', [AboutController::class, 'createAbout'])->name('about.create');
+            Route::post('/create', [AboutController::class, 'storeAbout'])->name('about.store');
+            Route::get('/{id}/update', [AboutController::class, 'updateAbout'])->name('about.update');
+            Route::put('/{id}/update', [AboutController::class, 'editAbout'])->name('about.edit');
         });
         
     });

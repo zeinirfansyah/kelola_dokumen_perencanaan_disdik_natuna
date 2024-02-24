@@ -22,7 +22,8 @@ class About extends Model
         'instagram',
         'email',
         'kepala_dinas',
-        'quotes'
+        'quotes',
+        'foto_kepala_dinas'
     ];
 
     /**
