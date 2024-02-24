@@ -1,31 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">{{ __('Dashboard') }}</div>
-
-          <div class="card-body">
-            @if (session('status'))
-              <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-              </div>
-            @endif
-
-            <h2>Kamu login sebagai {{ Auth::user()->role }}</h2>
-
-            <a href="{{ route('logout') }}"
-              onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="nav-icon fas fa-sign-out-alt"></i>
-              <p>Log out</p>
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-            </form>
-          </div>
+  <div class="home">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6 home-desc">
+         <div class="home-text">
+          <h1><strong>Perencanaan Dinas Pendidikan Kabupaten Natuna</strong></h1>
+          <p class="truncate-text-30">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore aspernatur doloribus rerum sed praesentium inventore voluptatibus voluptates aliquid culpa doloremque corporis molestiae, nemo odit asperiores. Aliquid ipsam non excepturi cumque provident eum recusandae, molestiae temporibus quia quaerat? Officiis adipisci laboriosam nostrum! Nobis autem similique non. Illum, mollitia laudantium cupiditate tempora sequi minima et illo veniam hic itaque provident esse, eos ipsum accusantium! Nisi soluta necessitatibus fuga minus officiis libero deserunt voluptate suscipit non quo! Odio rem voluptatum quis sed vitae officiis deleniti nisi asperiores accusamus. Atque dolore vero nobis? Enim minus iure excepturi rem quaerat temporibus et eveniet commodi dolorem.
+          </p>
+          <a href="#" class="btn-white">Selengkapnya</a>
+         </div>
+        </div>
+        <div class="col">
         </div>
       </div>
     </div>

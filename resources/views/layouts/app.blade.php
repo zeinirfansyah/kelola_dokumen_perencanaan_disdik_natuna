@@ -16,7 +16,10 @@
 
   <!-- bootstrap 5.0 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  
+
+  <!-- styles -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
   <!-- Scripts -->
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -28,6 +31,25 @@
       @yield('content')
     </main>
   </div>
+
+  <script>
+    // Add this script to your page or in a separate JavaScript file
+    document.addEventListener('DOMContentLoaded', function() {
+      var elements = document.getElementsByClassName('truncate-text-30');
+
+      for (var i = 0; i < elements.length; i++) {
+        var text = elements[i].textContent.trim();
+        var words = text.split(' ');
+        var truncatedText = words.slice(0, 50).join(' ');
+
+        if (words.length > 50) {
+          truncatedText += '...'; // Add ellipsis if content is truncated
+        }
+
+        elements[i].textContent = truncatedText;
+      }
+    });
+  </script>
 
   <!-- bootstrap 5.0 -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
