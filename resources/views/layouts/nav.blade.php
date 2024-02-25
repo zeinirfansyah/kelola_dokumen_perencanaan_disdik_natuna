@@ -11,11 +11,10 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <!-- add navigation -->
-                <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">LKJIP</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">SPM Pendidikan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">RK & RKT</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Peraturan Pendidikan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.lkjip') }}">LKJIP</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.spmp') }}">SPM Pendidikan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.pkrkt') }}">PK & RKT</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.peraturan') }}">Peraturan Pendidikan</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
             </ul>
