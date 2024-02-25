@@ -12,3 +12,4 @@
 - create empty database based on database name inside .env file
 - migrate the database `php artisan migrate`
 - run the project localy `npm run dev` and `php artisan serve`
+- link the storage `php artisan storage:link`
