@@ -26,11 +26,15 @@
 
 <body>
   <div id="app">
+   <header>
     @include('layouts.nav')
+   </header>
     <main>
       @yield('content')
     </main>
-    @include('layouts.footer')
+    <footer>
+      @include('layouts.footer')
+    </footer>
   </div>
 
   <script>
