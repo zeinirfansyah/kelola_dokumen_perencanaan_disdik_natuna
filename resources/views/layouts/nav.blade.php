@@ -16,7 +16,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.pkrkt') }}">PK & RKT</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.peraturan') }}">Peraturan Pendidikan</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.galery') }}">Galeri</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.contact') }}">Kontak</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -35,7 +35,7 @@ Route::get('/spmp', [LandingPageController::class, 'showSPMP'])->name('landing.s
 Route::get('/pkrkt', [LandingPageController::class, 'showPKRKT'])->name('landing.pkrkt');
 Route::get('/peraturan', [LandingPageController::class, 'showPeraturan'])->name('landing.peraturan');
 Route::get('/galery', [LandingPageController::class, 'showGalery'])->name('landing.galery');
-// Route::get('/about', [LandingPageController::class, 'showAbout'])->name('landing.about');
+Route::get('/contact', [LandingPageController::class, 'showContact'])->name('landing.contact');
 
 Auth::routes();
 

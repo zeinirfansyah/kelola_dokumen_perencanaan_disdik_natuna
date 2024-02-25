@@ -168,4 +168,10 @@ class LandingPageController extends Controller
             'years' => $years,
         ]);
     }
+    
+    public function showContact()
+    {
+        $about = About::first();
+        return view('contact', compact('about'));
+    }
 }
