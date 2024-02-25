@@ -49,7 +49,7 @@
                 </select>
 
                 <label for="file" class="form-label">{{ __('File')}}</label>
-                <input type="file" name="file" accept=".pdf, .doc, .docx, .xls, .xlsx"  class="form-control">
+                <input type="file" name="file" accept=".jpg, .jpeg, .png"  class="form-control">
                 @error('file')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

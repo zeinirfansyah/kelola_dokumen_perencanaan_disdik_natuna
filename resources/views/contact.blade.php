@@ -13,7 +13,7 @@
               @if ($about)
               <div class="tentang-kami">
                 <ul>
-                    <li>Telepon: {{ $about->telepon }}</li>
+                    <li>Telepon: {{ $about->no_telepon }}</li>
                     <li>Email: {{ $about->email }}</li>
                     <li>Instagram: {{ $about->instagram }}</li>
                     <li>Alamat: {{ $about->alamat }}</li>
