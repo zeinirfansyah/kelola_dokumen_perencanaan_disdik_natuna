@@ -1,3 +1,21 @@
+a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+a:hover {
+    color: #868686 !important;
+}
+
+main a {
+    color: white !important;
+}
+
+footer {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
 .btn-white {
     background-color: white;
     color: black;
@@ -26,7 +44,13 @@
     font-size: 16px;
 }
 
-.home .home-desc {
+.canvas {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.dark-canvas  {
     height: 92vh;
     background-color: #000000db;
     align-items: center;
@@ -35,3 +59,34 @@
     padding: 4rem;
 }
 
+.home-text {
+    margin: 4rem;
+}
+
+
+.icon-document img:hover {
+    width: 350px !important;
+    transition: all 0.5s ease; 
+}
+
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #000000a3 !important; 
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #a4a4a44b !important;
+    border-color: #a4a4a44b !important;
+    color: #fff !important;
+}
+
+footer a {
+    text-decoration: none !important;
+    color: #fff !important;
+}
