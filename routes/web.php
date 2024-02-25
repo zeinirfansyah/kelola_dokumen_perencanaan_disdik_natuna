@@ -4,11 +4,13 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
+use App\Models\About;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,19 +24,27 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// redirect / to /home route
 Route::get('/', function () {
-    return view('welcome');
+    $about = About::first();
+    return view('welcome', compact('about'));
 });
+
+Route::get('/lkjip', [LandingPageController::class, 'showLKJIP'])->name('landing.lkjip');
+Route::get('/spmp', [LandingPageController::class, 'showSPMP'])->name('landing.spmp');
+Route::get('/pkrkt', [LandingPageController::class, 'showPKRKT'])->name('landing.pkrkt');
+Route::get('/peraturan', [LandingPageController::class, 'showPeraturan'])->name('landing.peraturan');
+// Route::get('/galery', [LandingPageController::class, 'showGalery'])->name('landing.galery');
+// Route::get('/about', [LandingPageController::class, 'showAbout'])->name('landing.about');
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     //    all user routes
-    Route::get('/home', [HomeController::class, 'index'])->name('visitor.home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     // Admin and superadmin routes
-    Route::middleware(['auth', 'user-access:admin,superadmin'])->group(function(){
+    Route::middleware(['auth', 'user-access:admin,superadmin'])->group(function () {
         Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
 
         Route::prefix('admin/profile')->group(function () {
@@ -42,7 +52,7 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
             Route::put('/update', [ProfileController::class, 'editProfile'])->name('profile.edit');
         });
-        
+
         Route::prefix('admin/lkjip')->group(function () {
             Route::get('/', [LKJIPController::class, 'index'])->name('lkjip.index');
             Route::get('/create', [LKJIPController::class, 'createDocument'])->name('lkjip.create');
@@ -60,7 +70,7 @@ Route::middleware(['auth'])->group(function(){
             Route::put('/{id}/update', [SPMPController::class, 'editDocument'])->name('spmp.edit');
             Route::delete('/{id}/delete', [SPMPController::class, 'deleteDocument'])->name('spmp.delete');
         });
-        
+
         Route::prefix('admin/pkrkt')->group(function () {
             Route::get('/', [PKRKTController::class, 'index'])->name('pkrkt.index');
             Route::get('/create', [PKRKTController::class, 'createDocument'])->name('pkrkt.create');
@@ -69,7 +79,7 @@ Route::middleware(['auth'])->group(function(){
             Route::put('/{id}/update', [PKRKTController::class, 'editDocument'])->name('pkrkt.edit');
             Route::delete('/{id}/delete', [PKRKTController::class, 'deleteDocument'])->name('pkrkt.delete');
         });
-        
+
         Route::prefix('admin/galery')->group(function () {
             Route::get('/', [GaleryController::class, 'index'])->name('galery.index');
             Route::get('/create', [GaleryController::class, 'createDocument'])->name('galery.create');
@@ -96,11 +106,10 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/{id}/update', [AboutController::class, 'updateAbout'])->name('about.update');
             Route::put('/{id}/update', [AboutController::class, 'editAbout'])->name('about.edit');
         });
-        
     });
 
     // Superadmin only
-    Route::middleware(['auth', 'user-access:superadmin'])->group(function(){
+    Route::middleware(['auth', 'user-access:superadmin'])->group(function () {
         Route::get('/superadmin/users-management', [UserDataController::class, 'index'])->name('users.index');
         Route::delete('/{id}/delete', [UserDataController::class, 'deleteUser'])->name('users.delete');
         Route::get('/{id}/detail', [UserDataController::class, 'detailUser'])->name('users.detail');
