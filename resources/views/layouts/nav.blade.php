@@ -15,7 +15,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.spmp') }}">SPM Pendidikan</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.pkrkt') }}">PK & RKT</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.peraturan') }}">Peraturan Pendidikan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.galery') }}">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
             </ul>
 
