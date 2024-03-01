@@ -30,6 +30,7 @@ class HomeController extends Controller
 
     public function adminHome()
     {
-        return view('admin.adminHome');
+        $about = About::first();
+        return view('admin.adminHome', compact('about'));
     }
 }

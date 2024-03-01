@@ -1,0 +1,12 @@
+.hero {
+    background-image: url("../assets/images/kantor_bupati_natuna_bnwnoir.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffffed;
+}
+
+.hero-canvas  {
+    background-color: #000000db;
+   
+}
