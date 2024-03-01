@@ -25,16 +25,17 @@
 </head>
 
 <body>
-  <div id="app">
-   <header>
+  <div id="app" class="poppins">
+   <header class="sticky-top">
     @include('layouts.nav')
    </header>
     <main>
       @yield('content')
     </main>
-    <footer>
+    <footer class="main-footer py-3">
       @include('layouts.footer')
     </footer>
+   
   </div>
 
   <script>

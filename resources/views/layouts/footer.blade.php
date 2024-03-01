@@ -1,4 +1,4 @@
-<footer class="main-footer py-3 ">
+<div class="footer">
   <div class="container d-flex">
     <div class="cr-dinas text-start">
       <strong class="text-start">
@@ -11,4 +11,4 @@
       href="https://icons8.com">Icons8</a>
     </div>
   </div>
-</footer>
+</div>

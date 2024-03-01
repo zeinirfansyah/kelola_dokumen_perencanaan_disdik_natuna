@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="home">
-    <div class="container-fluid">
+  <div class="hero">
+    <div class="container-fluid hero-canvas d-flex justify-content-center align-items-center">
       <div class="row">
         <div class="col dark-canvas">
          <div class="home-text">

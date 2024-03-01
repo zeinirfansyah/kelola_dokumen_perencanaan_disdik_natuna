@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="home">
-    <div class="container-fluid">
+  <div class="hero">
+    <div class="container-fluid  ">
       <div class="row">
-        
         <div class="col">
         </div>
-        <div class="col-12 col-md-6 dark-canvas">
-            <div class="home-text">
+        <div class="col-12 col-md-6 hero-canvas d-flex justify-content-center align-items-center">
+            <div class="hero-text">
               <h2><strong>Kontak Dinas Pendidikan Kabupaten Natuna</strong></h2>
               @if ($about)
               <div class="tentang-kami">
@@ -21,7 +20,9 @@
                 </ul>
               </div>
               @else
-                <p>No information available</p>
+              <div class="empty px-5" style="border: 1px solid #d7d7d7;">
+                <h3 class="text-white text-center my-5">Tidak ada informasi tersedia</h3>
+              </div>
               @endif
             </div>
           </div>
