@@ -14,7 +14,7 @@
     <section id="section2">
       <div class="container">
         <div class="row my-5">
-          <div class="col col-md-4 d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
             @if ($about)
               <div class="content">
                 <img src="{{ asset('storage/kepala_dinas/' . $about->foto_kepala_dinas) }}" class="img-fluid rounded"
@@ -27,15 +27,19 @@
               </div>
             @endif
           </div>
-          <div class="col d-flex justify-content-center align-items-center">
+          <div class="col d-flex justify-content-center align-items-center text-center text-md-start mt-3 mt-md-0">
             @if ($about)
               <div class="content">
+               <div class="tentand-disdik">
                 <h5>Tentang Dinas Pendidikan</h5>
                 {{ $about->tentang_disdik }}
+               </div>
                 <hr>
+               <div class="kutipan-kadis d-none d-md-block">
                 <h5>Kutipan</h5>
                 <p>{{ $about->quotes }}</p>
                 <p>- {{ $about->kepala_dinas }}</p>
+               </div>
               </div>
             @else
               <p>Tidak ada informasi tersedia</p>
