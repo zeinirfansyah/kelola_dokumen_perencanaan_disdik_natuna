@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KdpController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
@@ -38,6 +39,7 @@ Route::get('/peraturan', [LandingPageController::class, 'showPeraturan'])->name(
 Route::get('/galery', [LandingPageController::class, 'showGalery'])->name('landing.galery');
 Route::get('/contact', [LandingPageController::class, 'showContact'])->name('landing.contact');
 Route::get('/sapras', [LandingPageController::class, 'showSapras'])->name('landing.sapras');
+Route::get('/kdp', [LandingPageController::class, 'showKdp'])->name('landing.kdp');
 
 Auth::routes();
 
@@ -116,6 +118,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [SaprasController::class, 'updateDocument'])->name('sapras.update');
             Route::put('/{id}/update', [SaprasController::class, 'editDocument'])->name('sapras.edit');
             Route::delete('/{id}/delete', [SaprasController::class, 'deleteDocument'])->name('sapras.delete');
+        });
+
+        Route::prefix('admin/kdp')->group(function () {
+            Route::get('/', [KdpController::class, 'index'])->name('kdp.index');
+            Route::get('/create', [KdpController::class, 'createDocument'])->name('kdp.create');
+            Route::post('/create', [KdpController::class, 'storeDocument'])->name('kdp.store');
+            Route::get('/{id}/update', [KdpController::class, 'updateDocument'])->name('kdp.update');
+            Route::put('/{id}/update', [KdpController::class, 'editDocument'])->name('kdp.edit');
+            Route::delete('/{id}/delete', [KdpController::class, 'deleteDocument'])->name('kdp.delete');
         });
     });
 

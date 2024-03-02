@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Galery;
+use App\Models\Kdp;
 use App\Models\Lkjip;
 use App\Models\Peraturan;
 use App\Models\Pkrkt;
@@ -201,6 +202,37 @@ class LandingPageController extends Controller
         $documents = $documentsQuery->paginate(4);
     
         return view('sapras', [
+            'documents' => $documents,
+            'latestDocument' => $latestDocument,
+            'years' => $years,
+        ]);
+    }
+
+    public function showKdp(Request $request) {
+        $documentsQuery =Kdp::query();
+    
+        if ($request->has('search')) {
+            $searchQuery = $request->search;
+            $documentsQuery->where(function ($query) use ($searchQuery) {
+                $query->where('nama_dokumen', 'like', "%$searchQuery%")
+                    ->orWhere('tahun', 'like', "%$searchQuery%");
+            });
+        }
+    
+        // filter by tahun
+        if ($request->has('tahun') && $request->tahun !== 'semua') {
+            $documentsQuery->where('tahun', $request->tahun);
+        }
+    
+        // order by tahun in descending order
+        $documentsQuery->orderByDesc('tahun');
+        $latestDocument = $documentsQuery->first();
+    
+        $years =Kdp::select('tahun')->distinct()->get();
+    
+        $documents = $documentsQuery->paginate(4);
+    
+        return view('kdp', [
             'documents' => $documents,
             'latestDocument' => $latestDocument,
             'years' => $years,
