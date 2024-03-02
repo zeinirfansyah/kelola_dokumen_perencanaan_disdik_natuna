@@ -8,6 +8,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaprasController;
 use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
 use App\Models\About;
@@ -36,6 +37,7 @@ Route::get('/pkrkt', [LandingPageController::class, 'showPKRKT'])->name('landing
 Route::get('/peraturan', [LandingPageController::class, 'showPeraturan'])->name('landing.peraturan');
 Route::get('/galery', [LandingPageController::class, 'showGalery'])->name('landing.galery');
 Route::get('/contact', [LandingPageController::class, 'showContact'])->name('landing.contact');
+Route::get('/sapras', [LandingPageController::class, 'showSapras'])->name('landing.sapras');
 
 Auth::routes();
 
@@ -105,6 +107,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/create', [AboutController::class, 'storeAbout'])->name('about.store');
             Route::get('/{id}/update', [AboutController::class, 'updateAbout'])->name('about.update');
             Route::put('/{id}/update', [AboutController::class, 'editAbout'])->name('about.edit');
+        });
+
+        Route::prefix('admin/sapras')->group(function () {
+            Route::get('/', [SaprasController::class, 'index'])->name('sapras.index');
+            Route::get('/create', [SaprasController::class, 'createDocument'])->name('sapras.create');
+            Route::post('/create', [SaprasController::class, 'storeDocument'])->name('sapras.store');
+            Route::get('/{id}/update', [SaprasController::class, 'updateDocument'])->name('sapras.update');
+            Route::put('/{id}/update', [SaprasController::class, 'editDocument'])->name('sapras.edit');
+            Route::delete('/{id}/delete', [SaprasController::class, 'deleteDocument'])->name('sapras.delete');
         });
     });
 

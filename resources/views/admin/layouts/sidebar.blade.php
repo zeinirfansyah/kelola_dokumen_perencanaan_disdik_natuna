@@ -62,15 +62,21 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('galery.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-camera"></i>
-            <p>Galeri</p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="{{ route('peraturan.index') }}" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
             <p>Peraturan Pendidikan</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('sapras.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Sarana & Prasarana</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('galery.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-camera"></i>
+            <p>Galeri</p>
           </a>
         </li>
         <li class="nav-item">
