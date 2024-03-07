@@ -32,6 +32,7 @@
             <a class="dropdown-item" href="{{ route('landing.dpa') }}">DPA</a>
             <a class="dropdown-item" href="{{ route('landing.lrfk') }}">LRFK</a>
             <a class="dropdown-item" href="{{ route('landing.eproposal') }}">E Proposal</a>
+            <a class="dropdown-item" href="{{ route('landing.forum') }}">Forum Pendidikan</a>
           </div>
         </li>
         <li class="nav-item dropdown">

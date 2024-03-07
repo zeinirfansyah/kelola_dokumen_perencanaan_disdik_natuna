@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DpaController;
 use App\Http\Controllers\EproposalController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
@@ -52,6 +53,7 @@ Route::get('/rkpd', [LandingPageController::class, 'showRkpd'])->name('landing.r
 Route::get('/dpa', [LandingPageController::class, 'showDpa'])->name('landing.dpa');
 Route::get('/lrfk', [LandingPageController::class, 'showLrfk'])->name('landing.lrfk');
 Route::get('/eproposal', [LandingPageController::class, 'showEproposal'])->name('landing.eproposal');
+Route::get('/forum', [LandingPageController::class, 'showForum'])->name('landing.forum');
 
 Auth::routes();
 
@@ -192,6 +194,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [EproposalController::class, 'updateDocument'])->name('eproposal.update');
             Route::put('/{id}/update', [EproposalController::class, 'editDocument'])->name('eproposal.edit');
             Route::delete('/{id}/delete', [EproposalController::class, 'deleteDocument'])->name('eproposal.delete');
+        });
+
+        Route::prefix('admin/forum')->group(function () {
+            Route::get('/', [ForumController::class, 'index'])->name('forum.index');
+            Route::get('/create', [ForumController::class, 'createDocument'])->name('forum.create');
+            Route::post('/create', [ForumController::class, 'storeDocument'])->name('forum.store');
+            Route::get('/{id}/update', [ForumController::class, 'updateDocument'])->name('forum.update');
+            Route::put('/{id}/update', [ForumController::class, 'editDocument'])->name('forum.edit');
+            Route::delete('/{id}/delete', [ForumController::class, 'deleteDocument'])->name('forum.delete');
         });
     });
 

@@ -116,6 +116,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="{{ route('forum.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Forum</p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{ route('galery.index') }}" class="nav-link">
             <i class="nav-icon fas fa-camera"></i>
             <p>Galeri</p>
