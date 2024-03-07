@@ -29,6 +29,7 @@
             <a class="dropdown-item" href="{{ route('landing.musrenbangkab') }}">Musrenbangkab</a>
             <a class="dropdown-item" href="{{ route('landing.renja') }}">Renja DIknas</a>
             <a class="dropdown-item" href="{{ route('landing.rkpd') }}">RKPD</a>
+            <a class="dropdown-item" href="{{ route('landing.dpa') }}">DPA</a>
           </div>
         </li>
         <li class="nav-item dropdown">

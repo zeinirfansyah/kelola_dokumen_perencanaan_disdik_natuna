@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\DpaController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
@@ -46,6 +47,7 @@ Route::get('/kdp', [LandingPageController::class, 'showKdp'])->name('landing.kdp
 Route::get('/musrenbangkab', [LandingPageController::class, 'showMusrenbangkab'])->name('landing.musrenbangkab');
 Route::get('/renja', [LandingPageController::class, 'showRenja'])->name('landing.renja');
 Route::get('/rkpd', [LandingPageController::class, 'showRkpd'])->name('landing.rkpd');
+Route::get('/dpa', [LandingPageController::class, 'showDpa'])->name('landing.dpa');
 
 Auth::routes();
 
@@ -160,6 +162,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [RkpdController::class, 'updateDocument'])->name('rkpd.update');
             Route::put('/{id}/update', [RkpdController::class, 'editDocument'])->name('rkpd.edit');
             Route::delete('/{id}/delete', [RkpdController::class, 'deleteDocument'])->name('rkpd.delete');
+        });
+
+        Route::prefix('admin/dpa')->group(function () {
+            Route::get('/', [DpaController::class, 'index'])->name('dpa.index');
+            Route::get('/create', [DpaController::class, 'createDocument'])->name('dpa.create');
+            Route::post('/create', [DpaController::class, 'storeDocument'])->name('dpa.store');
+            Route::get('/{id}/update', [DpaController::class, 'updateDocument'])->name('dpa.update');
+            Route::put('/{id}/update', [DpaController::class, 'editDocument'])->name('dpa.edit');
+            Route::delete('/{id}/delete', [DpaController::class, 'deleteDocument'])->name('dpa.delete');
         });
     });
 
