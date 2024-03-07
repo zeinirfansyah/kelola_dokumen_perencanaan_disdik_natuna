@@ -180,12 +180,12 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::prefix('admin/lrfk')->group(function () {
-            Route::get('/', [LRFKController::class, 'index'])->name('lrfk.index');
-            Route::get('/create', [LRFKController::class, 'createDocument'])->name('lrfk.create');
-            Route::post('/create', [LRFKController::class, 'storeDocument'])->name('lrfk.store');
-            Route::get('/{id}/update', [LRFKController::class, 'updateDocument'])->name('lrfk.update');
-            Route::put('/{id}/update', [LRFKController::class, 'editDocument'])->name('lrfk.edit');
-            Route::delete('/{id}/delete', [LRFKController::class, 'deleteDocument'])->name('lrfk.delete');
+            Route::get('/', [LrfkController::class, 'index'])->name('lrfk.index');
+            Route::get('/create', [LrfkController::class, 'createDocument'])->name('lrfk.create');
+            Route::post('/create', [LrfkController::class, 'storeDocument'])->name('lrfk.store');
+            Route::get('/{id}/update', [LrfkController::class, 'updateDocument'])->name('lrfk.update');
+            Route::put('/{id}/update', [LrfkController::class, 'editDocument'])->name('lrfk.edit');
+            Route::delete('/{id}/delete', [LrfkController::class, 'deleteDocument'])->name('lrfk.delete');
         });
         Route::prefix('admin/eproposal')->group(function () {
             Route::get('/', [EproposalController::class, 'index'])->name('eproposal.index');
