@@ -6,6 +6,7 @@ use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KdpController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MusrenbangkabController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
@@ -40,6 +41,7 @@ Route::get('/galery', [LandingPageController::class, 'showGalery'])->name('landi
 Route::get('/contact', [LandingPageController::class, 'showContact'])->name('landing.contact');
 Route::get('/sapras', [LandingPageController::class, 'showSapras'])->name('landing.sapras');
 Route::get('/kdp', [LandingPageController::class, 'showKdp'])->name('landing.kdp');
+Route::get('/musrenbangkab', [LandingPageController::class, 'showMusrenbangkab'])->name('landing.musrenbangkab');
 
 Auth::routes();
 
@@ -127,6 +129,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [KdpController::class, 'updateDocument'])->name('kdp.update');
             Route::put('/{id}/update', [KdpController::class, 'editDocument'])->name('kdp.edit');
             Route::delete('/{id}/delete', [KdpController::class, 'deleteDocument'])->name('kdp.delete');
+        });
+
+        Route::prefix('admin/musrenbangkab')->group(function () {
+            Route::get('/', [MusrenbangkabController::class, 'index'])->name('musrenbangkab.index');
+            Route::get('/create', [MusrenbangkabController::class, 'createDocument'])->name('musrenbangkab.create');
+            Route::post('/create', [MusrenbangkabController::class, 'storeDocument'])->name('musrenbangkab.store');
+            Route::get('/{id}/update', [MusrenbangkabController::class, 'updateDocument'])->name('musrenbangkab.update');
+            Route::put('/{id}/update', [MusrenbangkabController::class, 'editDocument'])->name('musrenbangkab.edit');
+            Route::delete('/{id}/delete', [MusrenbangkabController::class, 'deleteDocument'])->name('musrenbangkab.delete');
         });
     });
 

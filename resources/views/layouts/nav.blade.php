@@ -17,6 +17,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.peraturan') }}">Peraturan Pendidikan</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.sapras') }}">Sarana & Prasarana</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.kdp') }}">KDP</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('landing.musrenbangkab') }}">Musrenbangkab</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.galery') }}">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.contact') }}">Kontak</a></li>
             </ul>
