@@ -10,6 +10,7 @@ use App\Http\Controllers\MusrenbangkabController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RenjaController;
 use App\Http\Controllers\SaprasController;
 use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
@@ -42,6 +43,7 @@ Route::get('/contact', [LandingPageController::class, 'showContact'])->name('lan
 Route::get('/sapras', [LandingPageController::class, 'showSapras'])->name('landing.sapras');
 Route::get('/kdp', [LandingPageController::class, 'showKdp'])->name('landing.kdp');
 Route::get('/musrenbangkab', [LandingPageController::class, 'showMusrenbangkab'])->name('landing.musrenbangkab');
+Route::get('/renja', [LandingPageController::class, 'showRenja'])->name('landing.renja');
 
 Auth::routes();
 
@@ -138,6 +140,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [MusrenbangkabController::class, 'updateDocument'])->name('musrenbangkab.update');
             Route::put('/{id}/update', [MusrenbangkabController::class, 'editDocument'])->name('musrenbangkab.edit');
             Route::delete('/{id}/delete', [MusrenbangkabController::class, 'deleteDocument'])->name('musrenbangkab.delete');
+        });
+
+        Route::prefix('admin/renja')->group(function () {
+            Route::get('/', [RenjaController::class, 'index'])->name('renja.index');
+            Route::get('/create', [RenjaController::class, 'createDocument'])->name('renja.create');
+            Route::post('/create', [RenjaController::class, 'storeDocument'])->name('renja.store');
+            Route::get('/{id}/update', [RenjaController::class, 'updateDocument'])->name('renja.update');
+            Route::put('/{id}/update', [RenjaController::class, 'editDocument'])->name('renja.edit');
+            Route::delete('/{id}/delete', [RenjaController::class, 'deleteDocument'])->name('renja.delete');
         });
     });
 

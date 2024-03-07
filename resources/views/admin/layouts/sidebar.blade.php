@@ -76,13 +76,19 @@
         <li class="nav-item">
           <a href="{{ route('kdp.index') }}" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
-            <p>Kontruksi Dalam Pengerjaan</p>
+            <p>KDP</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('musrenbangkab.index') }}" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
             <p>MUSRENBANGKAB</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('renja.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Renja Diknas</p>
           </a>
         </li>
         <li class="nav-item">

@@ -9,6 +9,7 @@ use App\Models\Lkjip;
 use App\Models\Musrenbangkab;
 use App\Models\Peraturan;
 use App\Models\Pkrkt;
+use App\Models\Renja;
 use App\Models\Sapras;
 use App\Models\Spmp;
 use Illuminate\Http\Request;
@@ -265,6 +266,37 @@ class LandingPageController extends Controller
         $documents = $documentsQuery->paginate(4);
     
         return view('musrenbangkab', [
+            'documents' => $documents,
+            'latestDocument' => $latestDocument,
+            'years' => $years,
+        ]);
+    }
+
+    public function showRenja(Request $request) {
+        $documentsQuery =Renja::query();
+    
+        if ($request->has('search')) {
+            $searchQuery = $request->search;
+            $documentsQuery->where(function ($query) use ($searchQuery) {
+                $query->where('nama_dokumen', 'like', "%$searchQuery%")
+                    ->orWhere('tahun', 'like', "%$searchQuery%");
+            });
+        }
+    
+        // filter by tahun
+        if ($request->has('tahun') && $request->tahun !== 'semua') {
+            $documentsQuery->where('tahun', $request->tahun);
+        }
+    
+        // order by tahun in descending order
+        $documentsQuery->orderByDesc('tahun');
+        $latestDocument = $documentsQuery->first();
+    
+        $years =Renja::select('tahun')->distinct()->get();
+    
+        $documents = $documentsQuery->paginate(4);
+    
+        return view('renja', [
             'documents' => $documents,
             'latestDocument' => $latestDocument,
             'years' => $years,
