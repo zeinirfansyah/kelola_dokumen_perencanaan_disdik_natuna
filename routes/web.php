@@ -7,6 +7,7 @@ use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KdpController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LRFKController;
 use App\Http\Controllers\MusrenbangkabController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
@@ -48,6 +49,7 @@ Route::get('/musrenbangkab', [LandingPageController::class, 'showMusrenbangkab']
 Route::get('/renja', [LandingPageController::class, 'showRenja'])->name('landing.renja');
 Route::get('/rkpd', [LandingPageController::class, 'showRkpd'])->name('landing.rkpd');
 Route::get('/dpa', [LandingPageController::class, 'showDpa'])->name('landing.dpa');
+Route::get('/lrfk', [LandingPageController::class, 'showLrfk'])->name('landing.lrfk');
 
 Auth::routes();
 
@@ -171,6 +173,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [DpaController::class, 'updateDocument'])->name('dpa.update');
             Route::put('/{id}/update', [DpaController::class, 'editDocument'])->name('dpa.edit');
             Route::delete('/{id}/delete', [DpaController::class, 'deleteDocument'])->name('dpa.delete');
+        });
+
+        Route::prefix('admin/lrfk')->group(function () {
+            Route::get('/', [LRFKController::class, 'index'])->name('lrfk.index');
+            Route::get('/create', [LRFKController::class, 'createDocument'])->name('lrfk.create');
+            Route::post('/create', [LRFKController::class, 'storeDocument'])->name('lrfk.store');
+            Route::get('/{id}/update', [LRFKController::class, 'updateDocument'])->name('lrfk.update');
+            Route::put('/{id}/update', [LRFKController::class, 'editDocument'])->name('lrfk.edit');
+            Route::delete('/{id}/delete', [LRFKController::class, 'deleteDocument'])->name('lrfk.delete');
         });
     });
 

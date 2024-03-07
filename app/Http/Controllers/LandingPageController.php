@@ -7,6 +7,7 @@ use App\Models\Dpa;
 use App\Models\Galery;
 use App\Models\Kdp;
 use App\Models\Lkjip;
+use App\Models\Lrfk;
 use App\Models\Musrenbangkab;
 use App\Models\Peraturan;
 use App\Models\Pkrkt;
@@ -361,6 +362,37 @@ class LandingPageController extends Controller
         $documents = $documentsQuery->paginate(4);
     
         return view('dpa', [
+            'documents' => $documents,
+            'latestDocument' => $latestDocument,
+            'years' => $years,
+        ]);
+    }
+
+    public function showLrfk(Request $request) {
+        $documentsQuery =Lrfk::query();
+    
+        if ($request->has('search')) {
+            $searchQuery = $request->search;
+            $documentsQuery->where(function ($query) use ($searchQuery) {
+                $query->where('nama_dokumen', 'like', "%$searchQuery%")
+                    ->orWhere('tahun', 'like', "%$searchQuery%");
+            });
+        }
+    
+        // filter by tahun
+        if ($request->has('tahun') && $request->tahun !== 'semua') {
+            $documentsQuery->where('tahun', $request->tahun);
+        }
+    
+        // order by tahun in descending order
+        $documentsQuery->orderByDesc('tahun');
+        $latestDocument = $documentsQuery->first();
+    
+        $years =Lrfk::select('tahun')->distinct()->get();
+    
+        $documents = $documentsQuery->paginate(4);
+    
+        return view('lrfk', [
             'documents' => $documents,
             'latestDocument' => $latestDocument,
             'years' => $years,
