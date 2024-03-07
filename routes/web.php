@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DpaController;
+use App\Http\Controllers\EproposalController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LKJIPController;
 use App\Http\Controllers\HomeController;
@@ -50,6 +51,7 @@ Route::get('/renja', [LandingPageController::class, 'showRenja'])->name('landing
 Route::get('/rkpd', [LandingPageController::class, 'showRkpd'])->name('landing.rkpd');
 Route::get('/dpa', [LandingPageController::class, 'showDpa'])->name('landing.dpa');
 Route::get('/lrfk', [LandingPageController::class, 'showLrfk'])->name('landing.lrfk');
+Route::get('/eproposal', [LandingPageController::class, 'showEproposal'])->name('landing.eproposal');
 
 Auth::routes();
 
@@ -182,6 +184,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [LRFKController::class, 'updateDocument'])->name('lrfk.update');
             Route::put('/{id}/update', [LRFKController::class, 'editDocument'])->name('lrfk.edit');
             Route::delete('/{id}/delete', [LRFKController::class, 'deleteDocument'])->name('lrfk.delete');
+        });
+        Route::prefix('admin/eproposal')->group(function () {
+            Route::get('/', [EproposalController::class, 'index'])->name('eproposal.index');
+            Route::get('/create', [EproposalController::class, 'createDocument'])->name('eproposal.create');
+            Route::post('/create', [EproposalController::class, 'storeDocument'])->name('eproposal.store');
+            Route::get('/{id}/update', [EproposalController::class, 'updateDocument'])->name('eproposal.update');
+            Route::put('/{id}/update', [EproposalController::class, 'editDocument'])->name('eproposal.edit');
+            Route::delete('/{id}/delete', [EproposalController::class, 'deleteDocument'])->name('eproposal.delete');
         });
     });
 
