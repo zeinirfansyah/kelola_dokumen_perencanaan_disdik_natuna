@@ -28,6 +28,7 @@
             <a class="dropdown-item" href="{{ route('landing.kdp') }}">KDP</a>
             <a class="dropdown-item" href="{{ route('landing.musrenbangkab') }}">Musrenbangkab</a>
             <a class="dropdown-item" href="{{ route('landing.renja') }}">Renja DIknas</a>
+            <a class="dropdown-item" href="{{ route('landing.rkpd') }}">RKPD</a>
           </div>
         </li>
         <li class="nav-item dropdown">

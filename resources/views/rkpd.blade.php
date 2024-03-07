@@ -9,18 +9,18 @@
             <div class="hero-title">
               <h3>
                 <strong>
-                  Rencana Kerja Dinas Pendidikan
+                  Rencana Kerja Pembangunan Daerah
                 </strong>
               </h3>
               <div class="hero-content">
                 <p>
-                    Dokumen yang bersifat indikatif yang memuat program-program pembangunan Pendidikan.
+                  Dokumen perencanaan daerah untuk periode 1 (satu) tahun atau disebut dengan rencana pembangunan tahunan daerah.
                 </p>
                 <ul>
                   @if ($documents->count() > 0)
                     @foreach ($documents as $document)
                       <li>
-                        <a href="{{ asset('storage/documents/renja/' . $document->file) }}" target="_blank"
+                        <a href="{{ asset('storage/documents/rkpd/' . $document->file) }}" target="_blank"
                           rel="noopener">
                           {{ $document->nama_dokumen }}
                         </a>
@@ -38,9 +38,9 @@
           </div>
           <div class="col text-center hero-desc d-flex justify-content-center align-items-center">
             @if ($latestDocument)
-              <a href="{{ asset('storage/documents/renja/' . $latestDocument->file) }}" target="_blank" rel="noopener"
+              <a href="{{ asset('storage/documents/rkpd/' . $latestDocument->file) }}" target="_blank" rel="noopener"
                 class="icon-document">
-                <img src="{{ asset('assets/illustration/document.svg') }}" alt="Renja Pendidikan"
+                <img src="{{ asset('assets/illustration/document.svg') }}" alt="Rkpd Pendidikan"
                   class="justify-content-center" style="width: 300px;">
                 <p class="text-center">
                   <strong>

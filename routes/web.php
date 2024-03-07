@@ -11,6 +11,7 @@ use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\PKRKTController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RenjaController;
+use App\Http\Controllers\RkpdController;
 use App\Http\Controllers\SaprasController;
 use App\Http\Controllers\SPMPController;
 use App\Http\Controllers\UserDataController;
@@ -44,6 +45,7 @@ Route::get('/sapras', [LandingPageController::class, 'showSapras'])->name('landi
 Route::get('/kdp', [LandingPageController::class, 'showKdp'])->name('landing.kdp');
 Route::get('/musrenbangkab', [LandingPageController::class, 'showMusrenbangkab'])->name('landing.musrenbangkab');
 Route::get('/renja', [LandingPageController::class, 'showRenja'])->name('landing.renja');
+Route::get('/rkpd', [LandingPageController::class, 'showRkpd'])->name('landing.rkpd');
 
 Auth::routes();
 
@@ -149,6 +151,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/update', [RenjaController::class, 'updateDocument'])->name('renja.update');
             Route::put('/{id}/update', [RenjaController::class, 'editDocument'])->name('renja.edit');
             Route::delete('/{id}/delete', [RenjaController::class, 'deleteDocument'])->name('renja.delete');
+        });
+
+        Route::prefix('admin/rkpd')->group(function () {
+            Route::get('/', [RkpdController::class, 'index'])->name('rkpd.index');
+            Route::get('/create', [RkpdController::class, 'createDocument'])->name('rkpd.create');
+            Route::post('/create', [RkpdController::class, 'storeDocument'])->name('rkpd.store');
+            Route::get('/{id}/update', [RkpdController::class, 'updateDocument'])->name('rkpd.update');
+            Route::put('/{id}/update', [RkpdController::class, 'editDocument'])->name('rkpd.edit');
+            Route::delete('/{id}/delete', [RkpdController::class, 'deleteDocument'])->name('rkpd.delete');
         });
     });
 
