@@ -63,61 +63,61 @@
         </li>
         <li class="nav-item">
           <a href="{{ route('peraturan.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>Peraturan Pendidikan</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('sapras.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>Sarana & Prasarana</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('kdp.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>KDP</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('musrenbangkab.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>MUSRENBANGKAB</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('renja.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>Renja Diknas</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('rkpd.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>RKPD</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('dpa.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>DPA</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('lrfk.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>LRFK</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('eproposal.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>E Proposal</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('forum.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+           <i class="nav-icon fas fa-book"></i>
             <p>Forum</p>
           </a>
         </li>
