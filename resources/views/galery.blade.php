@@ -4,7 +4,7 @@
   <div class="hero">
     <div class="container-fluid hero-canvas d-flex justify-content-center align-items-center">
       <div class="container">
-        <div class="row">
+        <div  data-aos="zoom-out" data-aos-duration="1500" class="row">
           @if ($documents->count() > 0)
             @foreach ($documents as $document)
               <div class="col-4 my-2">

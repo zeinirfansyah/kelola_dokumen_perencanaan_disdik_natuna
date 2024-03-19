@@ -3,7 +3,7 @@
 @section('content')
   <div class="hero">
     <div class="container-fluid  ">
-      <div class="row">
+      <div  data-aos="zoom-out" data-aos-duration="1500" class="row">
         <div class="col">
         </div>
         <div class="col-12 col-md-6 hero-canvas d-flex justify-content-center align-items-center">

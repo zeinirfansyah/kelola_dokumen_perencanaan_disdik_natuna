@@ -2,16 +2,16 @@
 
 @section('content')
   <div class="home">
-    <section id="section1" class="hero">
+    <section data-aos="zoom-out" data-aos-duration="1000" id="section1" class="hero">
       <div class="hero-canvas d-flex justify-content-center align-items-center text-center w-100">
         <div class="container">
-          <div class="hero-text px-md-5">
+          <div  data-aos="zoom-in" data-aos-duration="1000" class="hero-text px-md-5">
             <h1><strong>Sistem Informasi Berbasis Web Dinas Pendidikan dan Kebudayaan Kabupaten Natuna <br>(SIMBEK)</strong></h1>
           </div>
         </div>
       </div>
     </section>
-    <section id="section2">
+    <section data-aos="zoom-in" data-aos-duration="1000" id="section2">
       <div class="container">
         <div class="row my-5">
           <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">

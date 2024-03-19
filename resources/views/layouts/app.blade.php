@@ -15,7 +15,12 @@
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
   <!-- bootstrap 5.0 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,16 +31,16 @@
 
 <body>
   <div id="app" class="poppins">
-   <header class="sticky-top">
-    @include('layouts.nav')
-   </header>
+    <header class="sticky-top">
+      @include('layouts.nav')
+    </header>
     <main>
       @yield('content')
     </main>
     <footer class="main-footer py-3">
       @include('layouts.footer')
     </footer>
-   
+
   </div>
 
   <script>
@@ -57,8 +62,13 @@
     });
   </script>
 
+  <script>
+    AOS.init();
+  </script>
+
   <!-- bootstrap 5.0 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-dsi1h0ucU5Pkppe4lJS6qY8cpgJe7eSxF+qvazOlr06YmK6XcDqe5kMvVO92KqKJ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-dsi1h0ucU5Pkppe4lJS6qY8cpgJe7eSxF+qvazOlr06YmK6XcDqe5kMvVO92KqKJ" crossorigin="anonymous"></script>
 
 </body>
 

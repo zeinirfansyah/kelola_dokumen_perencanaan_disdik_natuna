@@ -4,7 +4,7 @@
   <div class="hero">
     <div class="container-fluid hero-canvas d-flex justify-content-center align-items-center">
       <div class="container">
-        <div class="row">
+        <div  data-aos="zoom-out" data-aos-duration="1500" class="row">
           <div class="col-12 col-md-6 hero-desc d-flex justify-content-center align-items-center">
             <div class="hero-title">
               <h3>
