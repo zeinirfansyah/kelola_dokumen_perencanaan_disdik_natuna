@@ -42,7 +42,7 @@
                 <!-- tahun dropdown -->
                 <label for="tahun" class="form-label">Tahun</label>
                 <select name="tahun" class="form-control" required>
-                    <option value="" disabled selected>Semua</option>
+                    <option value="" disabled selected>Pilih Tahun</option>
                     @for($year = date("Y"); $year >= 2000; $year--)
                         <option value="{{ $year }}" {{ $document->tahun == $year ? 'selected' : '' }}>{{ $year }}</option>
                     @endfor
