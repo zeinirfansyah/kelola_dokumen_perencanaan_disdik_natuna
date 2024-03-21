@@ -24,9 +24,7 @@
                       alt="{{ $about->foto_kepala_dinas }}">
                   </div>
                 @else
-                  <div class="empty text-center" style="height: 300px; width: 200px; border: 1px solid #d7d7d7;">
-                    No image available
-                  </div>
+                <p>Tidak ada informasi tersedia</p>
                 @endif
               </div>
               <div class="col d-flex justify-content-center align-items-center">
