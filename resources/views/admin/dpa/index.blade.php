@@ -33,7 +33,7 @@
                     <form method="GET" action="{{ route('dpa.index') }}" class="form-inline">
                       <div class="input-group input-group-sm" style="width: 300px">
                         <select name="tahun" class="form-control">
-                        <option value="all" selected>Semua</option>
+                        <option value="semua" selected>Semua</option>
                           @for($year = date("Y"); $year >= 2000; $year--)
                           <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>
                             {{ $year }}
